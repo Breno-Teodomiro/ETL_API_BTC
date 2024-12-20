@@ -25,11 +25,11 @@ Este projeto implementa um pipeline ETL (Extract, Transform, Load) que coleta da
 pip install requests tinydb psycopg2-binary streamlit python-dotenv
 
 ### Configuração do Ambiente
-1. Clone o repositório
+1) Clone o repositório
 git clone https://github.com/seu-usuario/bitcoin-etl.git
 cd bitcoin-etl
 
-2. Configure as variáveis de ambiente (.env)
+2) Configure as variáveis de ambiente (.env)
 DATABASE_URL=sua_url_do_render_postgres
 API_KEY=sua_chave_api_se_necessario
 
