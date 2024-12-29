@@ -1,7 +1,6 @@
 import requests
 from tinydb import TinyDB
 from datetime import datetime
-import time
 
 def extrair_dados_bitcoin():
     """Extrai o JSON completo da API da Coinbase."""
@@ -29,21 +28,13 @@ def salvar_dados_tinydb(dados, db_name="bitcoin_dados.json"):
     print("Dados salvos no TinyDB!")
 
 if __name__ == "__main__":
-    print("Iniciando ETL com atualização a cada 15 segundos... (CTRL+C para interromper)")
+    # Extração e tratamento dos dados
+    dados_json = extrair_dados_bitcoin()
+    dados_tratados = tratar_dados_bitcoin(dados_json)
 
-    while True:
-        try:
-            dados_json = extrair_dados_bitcoin()
-            if dados_json:
-                dados_tratados = tratar_dados_bitcoin(dados_json)
-                print("Dados Tratados:", dados_tratados)
-                # Mostrar os dados tratados
-                print("Dados Tratados:")
-                print(dados_tratados)
-            time.sleep(15)
-        except KeyboardInterrupt:
-            print("\nProcesso interrompido pelo usuário. Finalizando...")
-            break
-        except Exception as e:
-            print(f"Erro durante a execução: {e}")
-            time.sleep(15)
+    # Mostrar os dados tratados
+    print("Dados Tratados:")
+    print(dados_tratados)
+    
+    # Salvar no TinyDB
+    salvar_dados_tinydb(dados_tratados)
