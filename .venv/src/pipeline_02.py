@@ -16,7 +16,8 @@ def tratar_dados_bitcoin(dados_json):
     dados_tratados = {
         "valor": valor,
         "criptomoeda": criptomoeda,
-        "moeda": moeda
+        "moeda": moeda,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 }
     return dados_tratados
 
