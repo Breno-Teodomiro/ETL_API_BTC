@@ -1,6 +1,7 @@
 streamlit
 psycopg2-binary
-python-dotenvarequests
+python-dotenv
+requests
 tinydb
 sqlalchemy 
 psycopg2-binary
